@@ -1,16 +1,19 @@
 #!/bin/bash
 set -e
 
-# Install SDKMAN to manage Java versions
+# Install SDKMAN silently
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Install Java 17 (or whichever version you need)
+# Install a stable Java version (e.g., 17)
 sdk install java 17.0.9-tem
 
-# Update environment variables so Maven can find Java
+# Set JAVA_HOME and PATH
 export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
 export PATH="$JAVA_HOME/bin:$PATH"
+
+# Confirm Java version (for debugging)
+java -version
 
 # Run the Maven build
 ./mvnw clean install
