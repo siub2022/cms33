@@ -2,15 +2,17 @@ package com.sample.userapp.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
     private String mobilephone;
+
     private String usercode;
 
-    // Getters and Setters
     public String getMobilephone() {
         return mobilephone;
     }
